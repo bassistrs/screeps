@@ -13,6 +13,8 @@ var roleHarvester = {
             task = "deliver energy";
         }
 
+        Console.log(Creep.name + " wants to " + task);
+
 
         if(task == "get energy" && creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
             creep.moveTo(sources[0]);
