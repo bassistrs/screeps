@@ -8,14 +8,14 @@ module.exports.loop = function () {
 
 	if(harvesters.length < 2) {
         var newName = 'Harvester' + Game.time;
-        Console.log("Creating new Creep: " + newName);
+        console.log("Creating new Creep: " + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
             {memory: {role: 'harvester'}});        
     }
 
     if(controllerFillers.length < 1) {
         var newName = 'ControllerFiller' + Game.time;
-        Console.log("Creating new Creep: " + newName);
+        console.log("Creating new Creep: " + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
             {memory: {role: 'controllerFiller'}});        
     }
