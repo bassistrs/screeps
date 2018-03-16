@@ -3,15 +3,16 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
 	    var sources = creep.room.find(FIND_SOURCES);
-        var task = creep.memory.task;
 
         if(creep.carry[RESOURCE_ENERGY] == 0){
-            task = "get energy";
+            creep.memory.task = "get energy";
         }
 
         if (creep.carry[RESOURCE_ENERGY] == creep.carryCapacity) {
-            task = "deliver energy";
+            creep.memory.task = "deliver energy";
         }
+
+        var task = creep.memory.task;
 
         console.log(Creep.name + " wants to " + task);
 
