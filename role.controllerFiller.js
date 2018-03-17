@@ -14,7 +14,7 @@ var roleControllerFiller = {
 
         var task = creep.memory.task;
 
-        console.log(Creep.name + " wants to " + task);
+        console.log(creep.name + " wants to " + task);
 
         if(task == "get energy" && creep.harvest(sources[1]) == ERR_NOT_IN_RANGE){
             creep.moveTo(sources[1]);

@@ -1,8 +1,9 @@
-var roleHarvester = {
+var roleBuilder = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-	    var sources = creep.room.find(FIND_SOURCES);
+        var sources = creep.room.find(FIND_SOURCES);
+	    var structures = creep.room.find(FIND_MY_STRUCTURES);
 
         if(creep.carry[RESOURCE_ENERGY] == 0){
             creep.memory.task = "get energy";
@@ -21,10 +22,14 @@ var roleHarvester = {
             creep.moveTo(sources[0]);
         }
 
-        if(task == "deliver energy" && creep.transfer(Game.spawns['Spawn1'], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(Game.spawns['Spawn1']);
+        if(task == "deliver energy"){
+            for(var name in structures){
+                if (creep.transfer(name, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(name);
+                }
+            }
         }
 	}
 };
 
-module.exports = roleHarvester;
+module.exports = roleBuilder;
