@@ -24,7 +24,7 @@ var roleBuilder = {
 
         if(task == "deliver energy"){
             for(var name in structures){
-                if (creep.build() == ERR_NOT_IN_RANGE){
+                if (creep.build(name) == ERR_NOT_IN_RANGE){
                     creep.moveTo(name);
                 }
             }
